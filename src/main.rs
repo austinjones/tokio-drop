@@ -4,10 +4,10 @@ use std::time::Duration;
 async fn main() {
     tokio::spawn(task());
 
-    tokio::time::sleep(Duration::from_secs(1000)).await;
-    //tokio::signal::ctrl_c()
-    //    .await
-    //    .expect("failed to listen for event");
+    // tokio::time::sleep(Duration::from_secs(1000)).await;
+    tokio::signal::ctrl_c()
+        .await
+        .expect("failed to listen for event");
 }
 
 async fn task() {
